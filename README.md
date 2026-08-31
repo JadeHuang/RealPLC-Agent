@@ -12,6 +12,13 @@
   RealPLC AI × CODESYS × PLC Engineering
 </p>
 
+<p align="center">
+  <a href="https://www.realplc.com">官网</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.0">下载 v0.4.0</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
+  <a href="CHANGELOG.md">更新日志</a>
+</p>
+
 ---
 
 ## 🚀 RealPLC Agent 是什么？
@@ -87,15 +94,23 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-进入本仓库：
+**[⬇️ 下载 RealPLC Agent v0.4.0（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/download/v0.4.0/RealPLC_Agent_v0.4.0_Setup.exe)**
 
-**Releases → v0.4.0**
+| 项目 | 信息 |
+| --- | --- |
+| 文件名 | `RealPLC_Agent_v0.4.0_Setup.exe` |
+| 文件大小 | 333.74 MiB（349,956,651 字节） |
+| SHA-256 | `60ED22A38AF072EF6E52DEC2AFFD5A82669ECD03241D532F8B6A388625F30E7B` |
+| 发布状态 | 早期公开测试版（Pre-release） |
+| 数字签名 | 当前安装包尚未签名 |
 
-下载：
+可在 PowerShell 中校验下载文件：
 
-```text
-RealPLC_Agent_v0.4.0_Setup.exe
+```powershell
+Get-FileHash .\RealPLC_Agent_v0.4.0_Setup.exe -Algorithm SHA256
 ```
+
+也可以下载仓库中的 [SHA-256 校验文件](checksums/v0.4.0/RealPLC_Agent_v0.4.0_Setup.exe.sha256)。
 
 安装完成后启动：
 
@@ -104,6 +119,16 @@ RealPLC Agent
 ```
 
 按照 Agent 界面的提示连接 RealPLC 与 CODESYS。
+
+### 系统要求
+
+- Windows 10/11 x64；安装程序需要管理员权限。
+- CODESYS V3.5 SP15–SP22；v0.4.0 重点验证 SP21。
+- 需要官方 CODESYS Scripting 组件才能执行 IDE 自动化验证。
+- 安装程序在系统缺失时提供 .NET Framework 4.8 与 Microsoft Edge WebView2 Runtime 离线安装。
+- 需要网络连接 RealPLC 服务；PLC 工程验证在本机执行。
+
+不同 OEM IDE、Profile、补丁版本和工程插件可能影响兼容性。遇到问题请在 Issue 中附上完整版本信息。
 
 ---
 
@@ -119,6 +144,15 @@ v0.4.0 仍属于早期公开测试版本。
 - Sandbox 环境
 
 > ⚠️ 请勿未经工程师确认，直接将 AI 生成的程序用于真实生产设备。
+
+### 安全与数据边界
+
+- CODESYS V1 验证链支持原生编译和 IDE Simulation，不自动下载到真实 PLC 或 Control Win/SoftMotion Runtime。
+- 工程验证在本机沙箱或工程副本中执行，云端与本地工程环境保持分离。
+- 日志和验证数据保存在当前 Windows 用户的本地应用数据目录中。
+- 提交 Issue 前请删除项目源码、访问令牌、设备密钥、客户名称和其他敏感信息。
+
+详细说明请参阅 [数据与隐私说明](DATA_AND_PRIVACY.md) 和 [安全策略](SECURITY.md)。
 
 ---
 
@@ -186,7 +220,7 @@ Compile / Diagnostics
 - 安装问题
 - Diagnostics 异常
 
-欢迎提交 **GitHub Issue**。
+欢迎提交 [GitHub Issue](https://github.com/JadeHuang/RealPLC-Agent/issues/new/choose)。
 
 提交问题时建议附带：
 
@@ -195,6 +229,8 @@ Compile / Diagnostics
 - CODESYS 版本
 - 错误截图
 - Agent 日志
+
+更多排障信息请参阅 [支持说明](SUPPORT.md)。
 
 ---
 
