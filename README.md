@@ -94,7 +94,7 @@ AI 分析 / 修复
 下载：
 
 ```text
-RealPLC-Agent-Setup-v0.4.0.exe
+RealPLC_Agent_v0.4.0_Setup.exe
 ```
 
 安装完成后启动：
