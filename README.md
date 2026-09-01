@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.0">下载 v0.4.0</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1">下载 v0.4.1</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v0.4.0 — 重点支持 RealPLC × CODESYS 闭环验证**
+> **v0.4.1 — 路径检测、版本一致性与高 DPI 界面稳定性修订**
 
 ---
 
@@ -47,7 +47,7 @@ AI 生成 ST
 手动编译和修改
 ```
 
-RealPLC v0.4.0：
+RealPLC v0.4.1：
 
 ```text
 用户需求
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v0.4.0 主要功能
+## ✨ v0.4.1 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -85,6 +85,10 @@ AI 分析 / 修复
 - 🔄 支持 AI 分析错误并继续修复
 - 📋 Agent 本地运行状态与日志
 - 🛡️ 云端 AI 与本地工程环境分离
+- 💽 在所有已就绪的本地固定磁盘上发现 CODESYS/TIA 安装
+- 📂 支持手动选择非标准安装路径
+- 🖥️ 改善 Windows 高 DPI、中文字体与窄窗口下的界面布局
+- ✅ 构建时强制校验发布 EXE 与 Connector Manifest 版本
 
 核心流程：
 
@@ -94,23 +98,23 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 下载 RealPLC Agent v0.4.0（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/download/v0.4.0/RealPLC_Agent_v0.4.0_Setup.exe)**
+**[⬇️ 打开 RealPLC Agent v0.4.1 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 文件名 | `RealPLC_Agent_v0.4.0_Setup.exe` |
-| 文件大小 | 333.74 MiB（349,956,651 字节） |
-| SHA-256 | `60ED22A38AF072EF6E52DEC2AFFD5A82669ECD03241D532F8B6A388625F30E7B` |
+| 文件名 | `RealPLC_Agent_v0.4.1_Setup.exe` |
+| 文件大小 | 以 v0.4.1 Release 页面资产信息为准 |
+| SHA-256 | 与安装包一同在 Release 资产中发布 |
 | 发布状态 | 早期公开测试版（Pre-release） |
 | 数字签名 | 当前安装包尚未签名 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_v0.4.0_Setup.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_v0.4.1_Setup.exe -Algorithm SHA256
 ```
 
-也可以下载仓库中的 [SHA-256 校验文件](checksums/v0.4.0/RealPLC_Agent_v0.4.0_Setup.exe.sha256)。
+请将计算结果与 v0.4.1 Release 资产中的 `.sha256` 文件核对。
 
 安装完成后启动：
 
@@ -123,7 +127,7 @@ RealPLC Agent
 ### 系统要求
 
 - Windows 10/11 x64；安装程序需要管理员权限。
-- CODESYS V3.5 SP15–SP22；v0.4.0 重点验证 SP21。
+- CODESYS V3.5 SP15 及更高 Service Pack；v0.4.1 移除了硬编码 SP22 上限。具体 OEM/Profile/Patch 组合仍需单独验证。
 - 需要官方 CODESYS Scripting 组件才能执行 IDE 自动化验证。
 - 安装程序在系统缺失时提供 .NET Framework 4.8 与 Microsoft Edge WebView2 Runtime 离线安装。
 - 需要网络连接 RealPLC 服务；PLC 工程验证在本机执行。
@@ -134,7 +138,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v0.4.0 仍属于早期公开测试版本。
+v0.4.1 仍属于早期公开测试版本。
 
 建议优先使用：
 
@@ -258,6 +262,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
+- [v0.4.1 发布说明](docs/RELEASE_NOTES_v0.4.1.md)
 - [更新日志](CHANGELOG.md)
 - [兼容性说明](docs/COMPATIBILITY.md)
 - [支持与问题反馈](SUPPORT.md)
@@ -270,7 +275,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v0.4.0</strong>
+  <strong>RealPLC Agent v0.4.1</strong>
 </p>
 
 <p align="center">

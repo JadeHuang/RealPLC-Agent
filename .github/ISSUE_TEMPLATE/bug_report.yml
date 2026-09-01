@@ -11,6 +11,7 @@ body:
     attributes:
       label: RealPLC Agent 版本
       options:
+        - v0.4.1
         - v0.4.0
         - 其他版本
     validations:

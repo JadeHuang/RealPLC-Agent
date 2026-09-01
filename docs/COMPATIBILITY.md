@@ -1,6 +1,6 @@
 # 兼容性说明
 
-本文记录 RealPLC Agent v0.4.0 的公开兼容范围。不同 OEM IDE、Profile、补丁、插件和工程结构可能造成差异；超出下述范围不代表一定无法运行，但需要单独验证。
+本文记录 RealPLC Agent v0.4.1 的公开兼容范围。不同 OEM IDE、Profile、补丁、插件和工程结构可能造成差异；超出下述范围不代表一定无法运行，但需要单独验证。
 
 ## Windows
 
@@ -19,8 +19,8 @@
 
 | 项目 | 支持情况 |
 | --- | --- |
-| CODESYS 版本 | V3.5 SP15–SP22 |
-| v0.4.0 重点实测 | V3.5 SP21 |
+| CODESYS 版本 | V3.5 SP15 及更高 Service Pack（具体 OEM/Profile/Patch 组合需单独验证） |
+| v0.4.1 重点改进 | 跨固定磁盘发现、非标准路径与手动选择 |
 | 自动发现 | 选择受支持范围内已安装的版本，默认优先较高版本 |
 | 自动化依赖 | 官方 CODESYS Scripting 组件 |
 | 原生编译与诊断 | 支持 |
@@ -33,7 +33,7 @@
 - OEM 定制版 CODESYS IDE；
 - 非标准 Profile、Additional Folder 或设备描述；
 - 依赖商业插件、专用编译器或自定义库的工程；
-- CODESYS V3.5 SP15–SP22 以外的版本；
+- 未经验证的 CODESYS Service Pack/Patch 组合；
 - 网络盘、UNC 路径或受组织安全策略限制的工程目录。
 
 ## 网络与本地数据
