@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: RealPLC 官网
+    url: https://www.realplc.com
+    about: 了解 RealPLC 产品与服务。
+  - name: 下载最新公开版本
+    url: https://github.com/JadeHuang/RealPLC-Agent/releases
+    about: 查看安装包、版本说明和 SHA-256。

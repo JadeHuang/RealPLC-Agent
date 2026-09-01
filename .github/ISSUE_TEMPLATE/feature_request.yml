@@ -1,0 +1,44 @@
+name: 功能建议
+description: 建议新的工程能力、平台支持或工作流改进。
+title: "[Feature] "
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: 功能领域
+      options:
+        - CODESYS
+        - Siemens TIA Portal
+        - Agent 连接与状态
+        - Diagnostics 与报告
+        - 安装、升级与发布
+        - 安全与权限
+        - 其他 PLC 平台
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的工程问题
+      description: 请描述当前工作流的困难，不要包含客户或生产系统敏感信息。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 描述期望的交互、输入、输出和验证方式。
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: 安全边界与风险
+      description: 说明是否涉及工程写回、PLC 下载、权限、凭据或生产设备。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 已尝试的替代方案
