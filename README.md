@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-  RealPLC AI × CODESYS × PLC Engineering
+  RealPLC AI × CODESYS × Siemens TIA Portal
 </p>
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1">下载 v0.4.1</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3">下载 v0.4.3</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v0.4.1 — 路径检测、版本一致性与高 DPI 界面稳定性修订**
+> **v0.4.3 — TIA V21+ 与多版本兼容、CODESYS 快速修复及原生文档体验**
 
 ---
 
@@ -47,7 +47,7 @@ AI 生成 ST
 手动编译和修改
 ```
 
-RealPLC v0.4.1：
+RealPLC v0.4.3：
 
 ```text
 用户需求
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v0.4.1 主要功能
+## ✨ v0.4.3 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -89,6 +89,10 @@ AI 分析 / 修复
 - 📂 支持手动选择非标准安装路径
 - 🖥️ 改善 Windows 高 DPI、中文字体与窄窗口下的界面布局
 - ✅ 构建时强制校验发布 EXE 与 Connector Manifest 版本
+- 🔷 兼容 TIA Portal V21+ 模块化 Openness PublicAPI，同时保留旧版本入口识别
+- 🎯 首次自动选择本机最高 TIA/CODESYS 版本，之后固定使用用户手动选择
+- 🧰 CODESYS Scripting 缺失时可从 Agent 中直接安装或修复
+- 📖 说明文档使用即时原生渲染，可用系统浏览器打开本地增强排版，无需 WebView2
 
 核心流程：
 
@@ -98,12 +102,12 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v0.4.1 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1)**
+**[⬇️ 打开 RealPLC Agent v0.4.3 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 文件名 | `RealPLC_Agent_v0.4.1_Setup.exe` |
-| 文件大小 | 以 v0.4.1 Release 页面资产信息为准 |
+| 文件名 | `RealPLC_Agent_V0.4.3_Setup_x64.exe` |
+| 文件大小 | 146,359,868 字节 |
 | SHA-256 | 与安装包一同在 Release 资产中发布 |
 | 发布状态 | 早期公开测试版（Pre-release） |
 | 数字签名 | 当前安装包尚未签名 |
@@ -111,10 +115,10 @@ AI 分析 / 修复
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_v0.4.1_Setup.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V0.4.3_Setup_x64.exe -Algorithm SHA256
 ```
 
-请将计算结果与 v0.4.1 Release 资产中的 `.sha256` 文件核对。
+请将计算结果与 v0.4.3 Release 资产中的 `.sha256` 文件核对。
 
 安装完成后启动：
 
@@ -127,9 +131,10 @@ RealPLC Agent
 ### 系统要求
 
 - Windows 10/11 x64；安装程序需要管理员权限。
-- CODESYS V3.5 SP15 及更高 Service Pack；v0.4.1 移除了硬编码 SP22 上限。具体 OEM/Profile/Patch 组合仍需单独验证。
+- CODESYS V3.5 SP15 及更高 Service Pack；首次运行默认选择已发现的最高版本，用户选择后保持固定。
 - 需要官方 CODESYS Scripting 组件才能执行 IDE 自动化验证。
-- 安装程序在系统缺失时提供 .NET Framework 4.8 与 Microsoft Edge WebView2 Runtime 离线安装。
+- TIA Portal Openness 支持传统 `Siemens.Engineering.dll` 入口及 V21+ `Siemens.Engineering.Base.dll` 模块化入口；需安装对应版本的 Openness 组件。
+- 安装程序在系统缺失时提供 .NET Framework 4.8 安装支持；文档查看不依赖 Microsoft Edge WebView2 Runtime。
 - 需要网络连接 RealPLC 服务；PLC 工程验证在本机执行。
 
 不同 OEM IDE、Profile、补丁版本和工程插件可能影响兼容性。遇到问题请在 Issue 中附上完整版本信息。
@@ -138,7 +143,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v0.4.1 仍属于早期公开测试版本。
+v0.4.3 仍属于早期公开测试版本。
 
 建议优先使用：
 
@@ -176,7 +181,7 @@ v0.4.1 仍属于早期公开测试版本。
 
 下一阶段将重点推进：
 
-- TIA Portal Openness
+- TIA Portal Openness 真机兼容回归
 - PLC 工程读取
 - OB / FB / FC / DB
 - SCL 导入
@@ -208,8 +213,8 @@ Compile / Diagnostics
 - AI 自动修复
 - 多轮自动验证
 - 验证历史与报告
-- TIA Portal Openness
-- TIA Compile 闭环
+- TIA Portal 多版本 Openness
+- TIA Compile 闭环与自动版本切换
 - 更多 PLC 开发平台
 
 ---
@@ -231,6 +236,7 @@ Compile / Diagnostics
 - RealPLC Agent 版本
 - Windows 版本
 - CODESYS 版本
+- TIA Portal 版本（如适用）
 - 错误截图
 - Agent 日志
 
@@ -262,7 +268,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
-- [v0.4.1 发布说明](docs/RELEASE_NOTES_v0.4.1.md)
+- [v0.4.3 发布说明](docs/RELEASE_NOTES_v0.4.3.md)
 - [更新日志](CHANGELOG.md)
 - [兼容性说明](docs/COMPATIBILITY.md)
 - [支持与问题反馈](SUPPORT.md)
@@ -275,9 +281,9 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v0.4.1</strong>
+  <strong>RealPLC Agent v0.4.3</strong>
 </p>
 
 <p align="center">
-  AI × PLC × CODESYS × Engineering Validation
+  AI × PLC × CODESYS × TIA Portal
 </p>

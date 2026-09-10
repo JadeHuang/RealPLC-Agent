@@ -2,6 +2,36 @@
 
 本项目遵循 [Semantic Versioning](https://semver.org/) 进行版本管理。预发布版本使用 `-alpha`、`-beta.N` 或 `-rc.N` 后缀；已发布的版本文件和标签不覆盖、不复用。
 
+## [0.4.3] - 2026-09-11
+
+> 早期公开测试版（Pre-release）
+
+### 新增
+
+- 支持 TIA Portal V21+ 模块化 Openness PublicAPI，并兼容传统版本入口。
+- TIA 与 CODESYS 首次运行自动选择本机最高版本，后续保持用户选定版本。
+- CODESYS 配置窗口增加 Scripting 安装/修复入口。
+- 文档说明改用即时原生渲染，并支持系统浏览器打开本地增强排版。
+
+### 改进
+
+- 默认云端连接改为 RealPLC 正式云端，并保留已有用户配置。
+- 优化高 DPI 下按钮、版本选择框、说明区域、状态栏和详情区域布局。
+- 精简主窗口、“更多”菜单和托盘菜单中的重复功能。
+- 删除 WebView2 编译、运行及安装依赖，改善首次打开速度和安装成功率。
+
+### 验证
+
+- CODESYS：97 项测试通过，类型检查通过。
+- TIA 离线验证：48/48 通过；SimaticML：53/53 通过。
+- UI 自动回归通过，包含 150% 缩放场景。
+- 更新源元数据、完整安装包下载和 SHA-256 校验通过。
+
+### 已知限制
+
+- 安装包尚未使用可信代码签名证书签名。
+- TIA V21+ 真实 Openness 连接仍需在装有对应版本 TIA Portal 的电脑上验收。
+
 ## [0.4.1] - 2026-09-01
 
 > 早期公开测试版（Pre-release）
@@ -56,3 +86,4 @@
 
 [0.4.1]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1
 [0.4.0]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.0
+[0.4.3]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3
