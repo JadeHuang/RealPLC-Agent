@@ -2,6 +2,36 @@
 
 本项目遵循 [Semantic Versioning](https://semver.org/) 进行版本管理。预发布版本使用 `-alpha`、`-beta.N` 或 `-rc.N` 后缀；已发布的版本文件和标签不覆盖、不复用。
 
+## [0.4.4] - 2026-09-15
+
+> 正式 Release（公开测试），用于验证 v0.4.3 → v0.4.4 自动升级。
+
+### 修复
+
+- TIA 状态改用最近一次真实 Openness 成功操作作为连接证据，避免已能读取快照却显示“未运行”。
+- 多 TIA 实例同时打开项目时要求明确选择 `ProcessId`，避免静默连接到错误工程。
+- TIA 环境向导收敛为六步，移除源码构建、Mock Gateway、云端、MCP 和本地 HTTP 等无关阻断项。
+- CODESYS 编译、仿真和测试阶段独立呈现，后续阶段失败不再覆盖已经通过的编译结论。
+
+### 改进
+
+- CODESYS 增加实际 Scripting 能力验证，以及安装/修复入口；首次选最高版本，用户保存后固定。
+- TIA 与 CODESYS 工作区结果完全隔离；增加最近 30 天任务记录和手动检查更新入口。
+- 云端状态文件使用原子写入，并识别过期状态。
+- Markdown 说明使用本机即时阅读器，增强排版交给系统浏览器，不依赖 WebView2。
+
+### 验证
+
+- 完整 Release Rebuild 通过，六个 EXE 的文件版本均为 `0.4.4.0`。
+- UI 自动回归通过，覆盖 150% DPI、TIA 连接证据、CODESYS 阶段状态和对话框布局。
+- v0.4.4 Release regression：22/22 通过。
+- CODESYS Doctor 确认 SP21 Patch 5、Scripting 4.2.0.0 及两个仿真 Runtime 已发现；完整无界面运行在本机超时，因此仍需用户点击“验证 Scripting”完成环境验收。
+
+### 已知限制
+
+- 安装包尚未使用可信代码签名证书签名。
+- 当前构建机未安装 TIA Portal，TIA V21+ 与各旧版本仍需在对应真机完成最终 Openness 验收。
+
 ## [0.4.3] - 2026-09-11
 
 > 早期公开测试版（Pre-release）
@@ -87,3 +117,4 @@
 [0.4.1]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.1
 [0.4.0]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.0
 [0.4.3]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3
+[0.4.4]: https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.4

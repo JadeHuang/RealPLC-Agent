@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3">下载 v0.4.3</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.4">下载 v0.4.4</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v0.4.3 — TIA V21+ 与多版本兼容、CODESYS 快速修复及原生文档体验**
+> **v0.4.4 — TIA V21+ 与多版本兼容、CODESYS 快速修复及原生文档体验**
 
 ---
 
@@ -47,7 +47,7 @@ AI 生成 ST
 手动编译和修改
 ```
 
-RealPLC v0.4.3：
+RealPLC v0.4.4：
 
 ```text
 用户需求
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v0.4.3 主要功能
+## ✨ v0.4.4 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -93,6 +93,11 @@ AI 分析 / 修复
 - 🎯 首次自动选择本机最高 TIA/CODESYS 版本，之后固定使用用户手动选择
 - 🧰 CODESYS Scripting 缺失时可从 Agent 中直接安装或修复
 - 📖 说明文档使用即时原生渲染，可用系统浏览器打开本地增强排版，无需 WebView2
+- 📡 TIA 状态以真实 Openness 成功操作为依据，避免进程扫描误报“未运行”
+- 🎛️ 多个 TIA 实例同时打开项目时要求明确选择 ProcessId，避免连接错误工程
+- 🧪 CODESYS 增加实际 `--runscript --noUI` 能力验证，区分组件文件存在和真正可用
+- 🗂️ TIA 与 CODESYS 的项目树、诊断、摘要和原始结果按工作区隔离
+- 🕘 提供最近 30 天任务记录和“更多 → 检查软件更新”入口
 
 核心流程：
 
@@ -102,23 +107,23 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v0.4.3 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.3)**
+**[⬇️ 打开 RealPLC Agent v0.4.4 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.4)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 文件名 | `RealPLC_Agent_V0.4.3_Setup_x64.exe` |
-| 文件大小 | 146,359,868 字节 |
+| 文件名 | `RealPLC_Agent_V0.4.4_Setup_x64.exe` |
+| 文件大小 | 146,362,561 字节 |
 | SHA-256 | 与安装包一同在 Release 资产中发布 |
-| 发布状态 | 早期公开测试版（Pre-release） |
+| 发布状态 | 正式 Release（公开测试） |
 | 数字签名 | 当前安装包尚未签名 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_V0.4.3_Setup_x64.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V0.4.4_Setup_x64.exe -Algorithm SHA256
 ```
 
-请将计算结果与 v0.4.3 Release 资产中的 `.sha256` 文件核对。
+请将计算结果与 v0.4.4 Release 资产中的 `.sha256` 文件核对。
 
 安装完成后启动：
 
@@ -143,7 +148,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v0.4.3 仍属于早期公开测试版本。
+v0.4.4 仍属于早期公开测试版本。
 
 建议优先使用：
 
@@ -268,7 +273,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
-- [v0.4.3 发布说明](docs/RELEASE_NOTES_v0.4.3.md)
+- [v0.4.4 发布说明](docs/RELEASE_NOTES_v0.4.4.md)
 - [更新日志](CHANGELOG.md)
 - [兼容性说明](docs/COMPATIBILITY.md)
 - [支持与问题反馈](SUPPORT.md)
@@ -281,7 +286,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v0.4.3</strong>
+  <strong>RealPLC Agent v0.4.4</strong>
 </p>
 
 <p align="center">
