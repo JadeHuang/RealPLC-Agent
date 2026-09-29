@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.5">下载 v0.4.5</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.0">下载 v1.1.0</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v0.4.5 — 规范化 RealPLC 云端 WebSocket 地址**
+> **v1.1.0 — 完善 Siemens TIA Portal 自动化与工程验证链路**
 
 ---
 
@@ -47,25 +47,25 @@ AI 生成 ST
 手动编译和修改
 ```
 
-RealPLC v0.4.5：
+RealPLC Agent：
 
 ```text
 用户需求
-   ↓
+  ↓
 RealPLC AI
-   ↓
+  ↓
 生成 ST
-   ↓
+  ↓
 RealPLC Agent
-   ↓
+  ↓
 CODESYS
-   ↓
+  ↓
 真实验证
-   ↓
+  ↓
 Diagnostics
-   ↓
+  ↓
 AI 分析 / 修复
-   ↓
+  ↓
 再次验证
 ```
 
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v0.4.5 主要功能
+## ✨ v1.1.0 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -85,12 +85,12 @@ AI 分析 / 修复
 - 🔄 支持 AI 分析错误并继续修复
 - 📋 Agent 本地运行状态与日志
 - 🛡️ 云端 AI 与本地工程环境分离
-- 💽 在所有已就绪的本地固定磁盘上发现 CODESYS/TIA 安装
+- 💽 在已就绪的本地固定磁盘上发现 CODESYS / TIA 安装
 - 📂 支持手动选择非标准安装路径
 - 🖥️ 改善 Windows 高 DPI、中文字体与窄窗口下的界面布局
 - ✅ 构建时强制校验发布 EXE 与 Connector Manifest 版本
 - 🔷 兼容 TIA Portal V21+ 模块化 Openness PublicAPI，同时保留旧版本入口识别
-- 🎯 首次自动选择本机最高 TIA/CODESYS 版本，之后固定使用用户手动选择
+- 🎯 首次自动选择本机最高 TIA / CODESYS 版本，之后固定使用用户手动选择
 - 🧰 CODESYS Scripting 缺失时可从 Agent 中直接安装或修复
 - 📖 说明文档使用即时原生渲染，可用系统浏览器打开本地增强排版，无需 WebView2
 - 📡 TIA 状态以真实 Openness 成功操作为依据，避免进程扫描误报“未运行”
@@ -98,6 +98,17 @@ AI 分析 / 修复
 - 🧪 CODESYS 增加实际 `--runscript --noUI` 能力验证，区分组件文件存在和真正可用
 - 🗂️ TIA 与 CODESYS 的项目树、诊断、摘要和原始结果按工作区隔离
 - 🕘 提供最近 30 天任务记录和“更多 → 检查软件更新”入口
+- 🔷 增加 TIA Portal Project Discovery，获取项目、PLC 与 TIA 版本信息
+- 📋 支持读取 Program Cycle OB 信息
+- 🎯 支持 TIA Target Project
+- 🧪 支持 Target Project 中的 SCL Validation / Compile
+- 🔄 支持 Target Project 创建或复制，避免直接修改用户原始项目
+- 🔌 增加 CloudBridge Job Contract 与 Validation Job
+- 📡 完善 Worker → CloudBridge → Agent 的 Result 返回链路
+- 🧰 Installer 自动注册 TIA Openness Worker 到 whitelist
+- 🧹 Installer 卸载时自动清理 Worker 注册
+- 📦 Release 支持构建到独立 staging folder，无需停止正在运行的 Agent
+- 🧪 增加 CloudBridge、Worker 与 Target Job 的端到端测试
 
 核心流程：
 
@@ -107,23 +118,23 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v0.4.5 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v0.4.5)**
+**[⬇️ 打开 RealPLC Agent v1.1.0 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.0)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 文件名 | `RealPLC_Agent_V0.4.5_Setup_x64.exe` |
-| 文件大小 | 146,356,796 字节 |
+| 版本 | `v1.1.0` |
+| 文件名 | 以 v1.1.0 Release 资产为准 |
 | SHA-256 | 与安装包一同在 Release 资产中发布 |
 | 发布状态 | 正式 Release（公开测试） |
-| 数字签名 | 当前安装包尚未签名 |
+| 数字签名 | 当前安装包是否签名以 Release 资产说明为准 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_V0.4.5_Setup_x64.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V1.1.0_Setup_x64.exe -Algorithm SHA256
 ```
 
-请将计算结果与 v0.4.5 Release 资产中的 `.sha256` 文件核对。
+请将计算结果与 v1.1.0 Release 资产中的 `.sha256` 文件核对。
 
 安装完成后启动：
 
@@ -131,7 +142,7 @@ Get-FileHash .\RealPLC_Agent_V0.4.5_Setup_x64.exe -Algorithm SHA256
 RealPLC Agent
 ```
 
-按照 Agent 界面的提示连接 RealPLC 与 CODESYS。
+按照 Agent 界面的提示连接 RealPLC 与 CODESYS / TIA Portal。
 
 ### 系统要求
 
@@ -139,6 +150,7 @@ RealPLC Agent
 - CODESYS V3.5 SP15 及更高 Service Pack；首次运行默认选择已发现的最高版本，用户选择后保持固定。
 - 需要官方 CODESYS Scripting 组件才能执行 IDE 自动化验证。
 - TIA Portal Openness 支持传统 `Siemens.Engineering.dll` 入口及 V21+ `Siemens.Engineering.Base.dll` 模块化入口；需安装对应版本的 Openness 组件。
+- TIA Portal 自动化功能需要本机安装对应版本的 TIA Portal。
 - 安装程序在系统缺失时提供 .NET Framework 4.8 安装支持；文档查看不依赖 Microsoft Edge WebView2 Runtime。
 - 需要网络连接 RealPLC 服务；PLC 工程验证在本机执行。
 
@@ -148,12 +160,14 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v0.4.5 仍属于早期公开测试版本。
+v1.1.0 仍属于公开测试版本。
 
 建议优先使用：
 
 - CODESYS 测试工程
+- TIA Portal 测试工程
 - 工程副本
+- Target Project
 - 虚拟 PLC
 - Sandbox 环境
 
@@ -161,8 +175,9 @@ v0.4.5 仍属于早期公开测试版本。
 
 ### 安全与数据边界
 
-- CODESYS V1 验证链支持原生编译和 IDE Simulation，不自动下载到真实 PLC 或 Control Win/SoftMotion Runtime。
-- 工程验证在本机沙箱或工程副本中执行，云端与本地工程环境保持分离。
+- CODESYS 验证链支持原生编译和 IDE Simulation，不自动下载到真实 PLC 或 Control Win / SoftMotion Runtime。
+- TIA 验证优先使用 Target Project，避免直接修改用户自己的原始工程。
+- 工程验证在本机环境、工程副本或 Target Project 中执行，云端与本地工程环境保持分离。
 - 日志和验证数据保存在当前 Windows 用户的本地应用数据目录中。
 - 提交 Issue 前请删除项目源码、访问令牌、设备密钥、客户名称和其他敏感信息。
 
@@ -184,27 +199,34 @@ v0.4.5 仍属于早期公开测试版本。
 
 ### 🔷 Siemens TIA Portal
 
-下一阶段将重点推进：
+v1.1.0 已完成 TIA Portal 自动化基础链路，下一阶段将重点推进：
 
-- TIA Portal Openness 真机兼容回归
-- PLC 工程读取
-- OB / FB / FC / DB
-- SCL 导入
-- Compile
-- Diagnostics
+- TIA Portal 多版本兼容回归
+- PLC 工程读取能力
+- OB / FB / FC / DB 更完整的工程读取
+- SCL 导入与工程集成
+- Compile 能力增强
+- Diagnostics 标准化
 - AI 自动修复
 - TIA 编译闭环验证
+- 更完整的 Target Project 自动化
 
 ```text
 RealPLC AI
      ↓
 RealPLC Agent
      ↓
+CloudBridge
+     ↓
+TIA Worker
+     ↓
 TIA Portal Openness
      ↓
 TIA Portal
      ↓
-Compile / Diagnostics
+Compile / Validation
+     ↓
+Result
 ```
 
 ---
@@ -219,7 +241,11 @@ Compile / Diagnostics
 - 多轮自动验证
 - 验证历史与报告
 - TIA Portal 多版本 Openness
-- TIA Compile 闭环与自动版本切换
+- TIA Project Discovery
+- TIA Target Project
+- TIA SCL Validation
+- TIA Compile 闭环
+- CloudBridge / Worker 工程自动化
 - 更多 PLC 开发平台
 
 ---
@@ -230,9 +256,11 @@ Compile / Diagnostics
 
 - Agent 连接问题
 - CODESYS 兼容问题
+- TIA Portal 兼容问题
 - 验证失败
 - 安装问题
 - Diagnostics 异常
+- CloudBridge / Worker 问题
 
 欢迎提交 [GitHub Issue](https://github.com/JadeHuang/RealPLC-Agent/issues/new/choose)。
 
@@ -244,6 +272,7 @@ Compile / Diagnostics
 - TIA Portal 版本（如适用）
 - 错误截图
 - Agent 日志
+- Worker 日志（如适用）
 
 更多排障信息请参阅 [支持说明](SUPPORT.md)。
 
@@ -255,13 +284,13 @@ Compile / Diagnostics
 
 我们希望让 AI 从：
 
-```
+```text
 PLC Code Generator
 ```
 
 逐渐进化成为：
 
-```
+```text
 PLC Engineering Agent
 ```
 
@@ -273,6 +302,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
+- [v1.1.0 发布说明](docs/RELEASE_NOTES_v1.1.0.md)
 - [v0.4.5 发布说明](docs/RELEASE_NOTES_v0.4.5.md)
 - [v0.4.4 发布说明](docs/RELEASE_NOTES_v0.4.4.md)
 - [更新日志](CHANGELOG.md)
@@ -287,7 +317,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v0.4.5</strong>
+  <strong>RealPLC Agent v1.1.0</strong>
 </p>
 
 <p align="center">
