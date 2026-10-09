@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2">下载 v1.1.2</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3">下载 v1.1.3</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v1.1.2 — 界面不再卡顿、启动更快，主页直接显示所连接的 IDE 版本**
+> **v1.1.3 — 带中文注释的程序完整导入 TIA Portal，云端连接断开后自动恢复，主窗口重新排版**
 
 ---
 
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v1.1.2 主要功能
+## ✨ v1.1.3 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -117,6 +117,12 @@ AI 分析 / 修复
 - 🚀 窗口先于 AgentHost 出现，启动更快；重复启动会把已有窗口调到前台
 - 🏷️ 主页直接显示所连接的 IDE 版本，例如 TIA V18、CODESYS SP21 P5
 - 🧪 CODESYS IDE 打开时也可以验证 Scripting
+- 🈶 带中文注释的 SCL 源文件完整导入 TIA Portal，变量声明不再丢失
+- 🪟 TIA 验证结束后在编辑器中打开导入的程序（Main），窗口进入项目视图；从验证结果打开的工程同样如此
+- 🔁 服务端重启后云端连接自动恢复，云端状态如实显示
+- ⏱️ “保存并连接”“断开连接”和环境配置向导不再让窗口无响应
+- 🧭 主窗口重新排版：侧栏按钮大小统一，概览页按“名称 / 值”对齐
+- 🔎 缩放高于 100% 的显示器上，正文、列表、表格和标签页的文字更清晰
 
 核心流程：
 
@@ -126,20 +132,20 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v1.1.2 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)**
+**[⬇️ 打开 RealPLC Agent v1.1.3 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 版本 | `v1.1.2` |
-| 文件名 | `RealPLC_Agent_V1.1.2_Setup_x64.exe` |
-| SHA-256 | `265AEC60F28BE8B57C23653C333288CEE6B682681390914676829DC1EE45D779` |
+| 版本 | `v1.1.3` |
+| 文件名 | `RealPLC_Agent_V1.1.3_Setup_x64.exe` |
+| SHA-256 | `8848CC3D9D85F55D6F83D84D571EA755CAC842F9C9B3A18DD6F0515F196F27C5` |
 | 发布状态 | 正式 Release（公开测试） |
 | 数字签名 | 当前安装包是否签名以 Release 资产说明为准 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_V1.1.2_Setup_x64.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V1.1.3_Setup_x64.exe -Algorithm SHA256
 ```
 
 请将计算结果与上表中的 SHA-256 值核对。
@@ -168,7 +174,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v1.1.2 仍属于公开测试版本。
+v1.1.3 仍属于公开测试版本。
 
 建议优先使用：
 
@@ -310,6 +316,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
+- [v1.1.3 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3)
 - [v1.1.2 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)
 - [v1.1.1 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.1)
 - [v1.1.0 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.0)
@@ -327,7 +334,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v1.1.2</strong>
+  <strong>RealPLC Agent v1.1.3</strong>
 </p>
 
 <p align="center">
