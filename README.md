@@ -311,7 +311,8 @@ PLC Engineering Agent
 ## 📚 项目文档
 
 - [v1.1.2 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)
-- [v1.1.0 发布说明](docs/RELEASE_NOTES_v1.1.0.md)
+- [v1.1.1 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.1)
+- [v1.1.0 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.0)
 - [v0.4.5 发布说明](docs/RELEASE_NOTES_v0.4.5.md)
 - [v0.4.4 发布说明](docs/RELEASE_NOTES_v0.4.4.md)
 - [更新日志](CHANGELOG.md)
