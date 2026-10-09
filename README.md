@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.1">下载 v1.1.1</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2">下载 v1.1.2</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v1.1.1 — 完善 Siemens TIA Portal 自动化与工程验证链路**
+> **v1.1.2 — 界面不再卡顿、启动更快，主页直接显示所连接的 IDE 版本**
 
 ---
 
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v1.1.1 主要功能
+## ✨ v1.1.2 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -113,6 +113,10 @@ AI 分析 / 修复
 - 🔁 根据编译诊断在同一 Run 内导入修复候选并再次编译
 - 🔐 首次 Openness 授权时提示用户在 TIA 窗口完成操作
 - 🧩 修复原生验证建运行记录时运行计划 ID 超长导致的数据库写入失败
+- ⚡ CODESYS 检测与本地服务检查改为后台执行，装有 CODESYS 的电脑上窗口不再周期性卡顿
+- 🚀 窗口先于 AgentHost 出现，启动更快；重复启动会把已有窗口调到前台
+- 🏷️ 主页直接显示所连接的 IDE 版本，例如 TIA V18、CODESYS SP21 P5
+- 🧪 CODESYS IDE 打开时也可以验证 Scripting
 
 核心流程：
 
@@ -122,20 +126,20 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v1.1.1 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.1)**
+**[⬇️ 打开 RealPLC Agent v1.1.2 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 版本 | `v1.1.1` |
-| 文件名 | `RealPLC_Agent_V1.1.1_Setup_x64.exe` |
-| SHA-256 | `A7C16A1ED357FFD02C7743DC906BC8C06CD428B569BDBED1C1FAFE8BEA6CF74A` |
+| 版本 | `v1.1.2` |
+| 文件名 | `RealPLC_Agent_V1.1.2_Setup_x64.exe` |
+| SHA-256 | `265AEC60F28BE8B57C23653C333288CEE6B682681390914676829DC1EE45D779` |
 | 发布状态 | 正式 Release（公开测试） |
 | 数字签名 | 当前安装包是否签名以 Release 资产说明为准 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_V1.1.0_Setup_x64.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V1.1.2_Setup_x64.exe -Algorithm SHA256
 ```
 
 请将计算结果与上表中的 SHA-256 值核对。
@@ -164,7 +168,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v1.1.1 仍属于公开测试版本。
+v1.1.2 仍属于公开测试版本。
 
 建议优先使用：
 
@@ -306,6 +310,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
+- [v1.1.2 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)
 - [v1.1.0 发布说明](docs/RELEASE_NOTES_v1.1.0.md)
 - [v0.4.5 发布说明](docs/RELEASE_NOTES_v0.4.5.md)
 - [v0.4.4 发布说明](docs/RELEASE_NOTES_v0.4.4.md)
@@ -321,7 +326,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v1.1.1</strong>
+  <strong>RealPLC Agent v1.1.2</strong>
 </p>
 
 <p align="center">

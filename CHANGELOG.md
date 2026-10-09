@@ -2,6 +2,87 @@
 
 本项目遵循 [Semantic Versioning](https://semver.org/) 进行版本管理。预发布版本使用 `-alpha`、`-beta.N` 或 `-rc.N` 后缀；已发布的版本文件和标签不覆盖、不复用。
 
+## [1.1.2] - 2026-10-09
+
+> 正式 Release（公开测试），解决界面卡顿、加快启动，并在主页显示所连接的 IDE 版本。
+
+### 修复
+
+- 装有 CODESYS 的电脑上窗口每隔几秒卡住：CODESYS 状态检测改为只查官方安装位置、结果保留 30 秒，并移到后台执行；Agent 留在托盘时也不再长时间占用一个 CPU 核。
+- CODESYS Connector 对话框要等检测完成才出现：现在立即打开，检测结果随后填入。
+- “启动/检查本地服务”“打开 Data Studio”、RealPLC HMI 对话框、“加入 Openness 用户组”和开机自启设置执行时窗口无响应。
+- 云端连接停止后的 20 秒内，窗口每秒卡顿一次。
+- 运行中捕获的错误不再显示为“启动失败”。
+
+### 改进
+
+- 窗口不再等 AgentHost 启动完成才出现；重复启动 Agent 会把已有窗口调到前台。
+- 主页的平台按钮和状态栏直接显示所连接的 IDE 版本，例如“TIA V18”“CODESYS SP21 P5”；鼠标悬停可查看完整版本和安装路径。
+- CODESYS IDE 打开时也可以验证 Scripting，耗时约为平时的两倍。
+- 修复重连 TIA 时，同样提示用户在 TIA 窗口完成 Openness 授权。
+
+### 验证
+
+- Openness harness：106/106；CloudBridge target tests：33/33。
+- 发布校验与 HMI Runtime 自检通过。
+- 界面响应性测试、直接启动测试、由 AgentHost 拉起启动的测试通过。
+- 同一台开发机、同等负载下与 v1.1.1 对比：启动到窗口显示 33 秒 → 3～5 秒；空闲时最长无响应 9.8 秒 → 0.1～0.2 秒；打开 CODESYS Connector 对话框 44 秒 → 0.5～2 秒；托盘空闲时占用一个 CPU 核的 56% → 1～4%。
+- 发布安装包：`RealPLC_Agent_V1.1.2_Setup_x64.exe`；同一文件另以固定文件名 `RealPLC-TIA-Agent-Setup-x64.exe` 提供。
+- 安装包 SHA-256：`265AEC60F28BE8B57C23653C333288CEE6B682681390914676829DC1EE45D779`。
+
+### 已知限制
+
+- “连接云端”和环境向导中的用户组检查仍在界面线程执行，通常不到一秒。
+- 程序尚未声明 DPI 感知，在缩放高于 100% 的显示器上由系统拉伸显示。
+- 安装包尚未使用可信代码签名证书签名。
+- 当前构建机未安装 TIA Portal，TIA 相关改动仍需在装有 TIA Portal 的环境验收。
+
+## [1.1.1] - 2026-10-01
+
+> 正式 Release（公开测试），完善可见 TIA Portal 验证链路。
+
+### 改进
+
+- 在可见的 TIA Portal 会话中完成验证与修复：打开或创建验证工程、导入候选程序、执行原生编译并返回块级诊断；同一次运行内可导入修复后的候选程序再次编译。
+- Openness 进度与编译诊断按事件顺序上报，工作区可以显示 TIA 当前在做什么。
+
+### 修复
+
+- 运行计划审批 ID 不再被截断，自动原生验证建立运行记录时不再因数据库字段长度失败。
+
+### 验证
+
+- Openness harness：101/101；CloudBridge target tests：33/33。
+- 发布校验与 HMI Runtime 自检通过。
+- 发布安装包：`RealPLC_Agent_V1.1.1_Setup_x64.exe`。
+- 安装包 SHA-256：`A7C16A1ED357FFD02C7743DC906BC8C06CD428B569BDBED1C1FAFE8BEA6CF74A`。
+
+### 已知限制
+
+- 首次 Openness 授权仍需用户在 TIA 窗口中确认。
+
+## [1.1.0] - 2026-09-29
+
+> 正式 Release（公开测试），完善 TIA Portal 自动化、Worker、CloudBridge 与目标项目编译链路。
+
+### 新增
+
+- TIA 项目发现：获取已打开的 TIA 项目、PLC、TIA Portal 版本和 Program Cycle OB 信息。
+- Target Project：`validate-scl` 可在指定的目标项目中编译；目标项目不存在时自动创建或复制，不直接修改用户自己的原始项目。
+- CloudBridge Job Contract 与 Validation Job，打通 Agent → CloudBridge → Worker → TIA Portal → Result 的返回链路。
+- Data Studio 支持将 HMI 画面与 OPC UA 变量绑定。
+
+### 改进
+
+- 安装程序自动把 TIA Openness Worker 注册到 whitelist，卸载时清理。
+- Release 可以构建到独立的 staging 目录，打包时无需停止正在运行的 Agent。
+- 改进 HMI Activation 流程，激活失败时不留下运行中的残余。
+
+### 验证
+
+- 发布安装包：`RealPLC_Agent_V1.1.0_Setup_x64.exe`。
+- 安装包 SHA-256：`C46DA71EE81E5DCC93A241B6276056F8E4F9064334C447F509AC53F86BB778DA`。
+
 ## [0.4.5] - 2026-09-17
 
 > 正式 Release（公开测试），统一默认 RealPLC 云端地址并发布 Windows x64 安装包。
