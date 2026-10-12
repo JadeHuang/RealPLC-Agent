@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://www.realplc.com">官网</a> ·
-  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3">下载 v1.1.3</a> ·
+  <a href="https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.4">下载 v1.1.4</a> ·
   <a href="https://github.com/JadeHuang/RealPLC-Agent/issues">问题反馈</a> ·
   <a href="CHANGELOG.md">更新日志</a>
 </p>
@@ -29,7 +29,7 @@
 
 当前版本：
 
-> **v1.1.3 — 带中文注释的程序完整导入 TIA Portal，云端连接断开后自动恢复，主窗口重新排版**
+> **v1.1.4 — 云端地址随 Agent 内置，配对后启动即自动连接，任务结果重发和日志都有了上限**
 
 ---
 
@@ -75,7 +75,7 @@ AI 分析 / 修复
 
 ---
 
-## ✨ v1.1.3 主要功能
+## ✨ v1.1.4 主要功能
 
 - 🤖 AI 生成 PLC Structured Text 程序
 - 🔗 RealPLC Agent 本地连接
@@ -123,6 +123,12 @@ AI 分析 / 修复
 - ⏱️ “保存并连接”“断开连接”和环境配置向导不再让窗口无响应
 - 🧭 主窗口重新排版：侧栏按钮大小统一，概览页按“名称 / 值”对齐
 - 🔎 缩放高于 100% 的显示器上，正文、列表、表格和标签页的文字更清晰
+- 🌐 RealPLC 正式云端的地址随 Agent 内置，不会再出现空白，只需输入首次配对码
+- 🔌 配对过的 Agent 启动后自动连接；从旧版本升级的电脑在第一次启动时自动获得这一设置
+- 🎛️ 启动设置里的自动连接开关与云端连接对话框显示同一个保存值
+- 🔑 Agent 不再在本机按配对当天的到期时间拦下凭据（凭据续期在云端上线配套改动后生效）
+- 📮 云端不接收的任务结果不再无限重发
+- 🗂️ AgentHost 写的日志到 20 MB 轮转，不再无限增长
 
 核心流程：
 
@@ -132,20 +138,20 @@ AI 分析 / 修复
 
 ## 📥 下载
 
-**[⬇️ 打开 RealPLC Agent v1.1.3 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3)**
+**[⬇️ 打开 RealPLC Agent v1.1.4 发布页（Windows x64）](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.4)**
 
 | 项目 | 信息 |
 | --- | --- |
-| 版本 | `v1.1.3` |
-| 文件名 | `RealPLC_Agent_V1.1.3_Setup_x64.exe` |
-| SHA-256 | `8848CC3D9D85F55D6F83D84D571EA755CAC842F9C9B3A18DD6F0515F196F27C5` |
+| 版本 | `v1.1.4` |
+| 文件名 | `RealPLC_Agent_V1.1.4_Setup_x64.exe` |
+| SHA-256 | `C7926F9C583F9599D33EE626092114110513D05AE04483A71D156C2DBFE925A3` |
 | 发布状态 | 正式 Release（公开测试） |
 | 数字签名 | 当前安装包是否签名以 Release 资产说明为准 |
 
 可在 PowerShell 中校验下载文件：
 
 ```powershell
-Get-FileHash .\RealPLC_Agent_V1.1.3_Setup_x64.exe -Algorithm SHA256
+Get-FileHash .\RealPLC_Agent_V1.1.4_Setup_x64.exe -Algorithm SHA256
 ```
 
 请将计算结果与上表中的 SHA-256 值核对。
@@ -174,7 +180,7 @@ RealPLC Agent
 
 ## 🧪 使用建议
 
-v1.1.3 仍属于公开测试版本。
+v1.1.4 仍属于公开测试版本。
 
 建议优先使用：
 
@@ -316,6 +322,7 @@ PLC Engineering Agent
 
 ## 📚 项目文档
 
+- [v1.1.4 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.4)
 - [v1.1.3 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.3)
 - [v1.1.2 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.2)
 - [v1.1.1 发布说明](https://github.com/JadeHuang/RealPLC-Agent/releases/tag/v1.1.1)
@@ -334,7 +341,7 @@ PLC Engineering Agent
 ---
 
 <p align="center">
-  <strong>RealPLC Agent v1.1.3</strong>
+  <strong>RealPLC Agent v1.1.4</strong>
 </p>
 
 <p align="center">
