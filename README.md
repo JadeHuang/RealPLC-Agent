@@ -193,6 +193,8 @@ v1.1.4 仍属于公开测试版本。
 
 > ⚠️ 请勿未经工程师确认，直接将 AI 生成的程序用于真实生产设备。
 
+输送线启停演示（生成 → 编译失败 → 修复 → Rebuild 复验）：[docs/demos/conveyor-start-stop](docs/demos/conveyor-start-stop/)。
+
 ### 安全与数据边界
 
 - CODESYS 验证链支持原生编译和 IDE Simulation，不自动下载到真实 PLC 或 Control Win / SoftMotion Runtime。
